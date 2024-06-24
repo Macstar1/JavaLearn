@@ -1,4 +1,4 @@
-package ru.netology.service;
+package Lesson2.service;
 
 public class CustomsService {
 

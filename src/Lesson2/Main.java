@@ -2,7 +2,7 @@ package Lesson2;
 
 import java.util.Scanner;
 
-import ru.netology.service.CustomsService;
+import Lesson2.service.CustomsService;
 
 public class Main {
 

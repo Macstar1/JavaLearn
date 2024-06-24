@@ -22,7 +22,9 @@ public class Book {
     }
 
     public boolean matches(String word) {
-        if (title.contains(word) || author.name.contains(word) || author.surname.contains(word)) {
+        if (title.contains(word)
+                || author.name.contains(word)
+                || author.surname.contains(word)) {
             return true;
         } else {
             return false;
