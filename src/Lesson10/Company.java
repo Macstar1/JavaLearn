@@ -17,22 +17,27 @@ public class Company {
 
 
     public void shiftMoney(int amount) {
-        if (amount < 0) {
+        if (amount > 0) {
             debit += amount;
-        } else if (amount > 0) {
+        } else if (amount < 0) {
             credit += Math.abs(amount);
         }
     }
 
-    public void payTaxes(){
+    public void payTaxes(TaxSystem taxSystem) {
         // TODO change this variables
-        System.out.printf("Компания %s уплатила налог в размере: %d руб.", 10, 10);
+
+
+
+
+        System.out.printf("Компания %s уплатила налог в размере: %d руб.", title, 10);
         debit = 0;
         credit = 0;
     }
 
-    public void setTaxSystem(int debit, int credit){
-
-
+    public void setTaxSystem(int taxSystem) {
+        if (taxSystem == 1 || taxSystem == 2) {
+            this.taxSystem = taxSystem;
+        }
     }
 }

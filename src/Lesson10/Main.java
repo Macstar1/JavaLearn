@@ -1,28 +1,18 @@
 package Lesson10;
 
+import Lesson10.taxes.TaxDebit;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        //Company company = new Company();
-
-        System.out.print("Введите название компании: ");
-        //company.title = scanner.nextLine();
-
-
-
-
-        while (true) {
-            System.out.println("Введите сумму или end для завершения: ");
-
-
-            String input = scanner.nextLine();
-            if ("end".equals(input)) {
-                break;
-            }
-
-
-        }
+        Company myCompany = new Company(1, "WorldTravelWithLowCost");
+        myCompany.shiftMoney(1200);
+        myCompany.shiftMoney(-300);
+        System.out.println(myCompany.debit);
+        System.out.println(myCompany.credit);
+        myCompany.setTaxSystem(2);
+      //  myCompany.payTaxes();
     }
 }
+
