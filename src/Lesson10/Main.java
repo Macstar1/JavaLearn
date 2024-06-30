@@ -1,6 +1,8 @@
 package Lesson10;
 
 import Lesson10.taxes.TaxDebit;
+import Lesson10.taxes.TaxDebitMinusCredit;
+import Lesson10.taxes.TaxSystem;
 
 import java.util.Scanner;
 
@@ -12,7 +14,11 @@ public class Main {
         System.out.println(myCompany.debit);
         System.out.println(myCompany.credit);
         myCompany.setTaxSystem(2);
-      //  myCompany.payTaxes();
+        TaxSystem taxDebit = new TaxDebit();
+
+        myCompany.payTaxes(new TaxDebitMinusCredit());
+
+
     }
 }
 

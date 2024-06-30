@@ -5,7 +5,7 @@ import Lesson10.taxes.TaxDebitMinusCredit;
 import Lesson10.taxes.TaxSystem;
 
 public class Company {
-    private int taxSystem;
+    private int taxSystem = 1;
     String title;
     int debit = 0;
     int credit = 0;
@@ -24,15 +24,14 @@ public class Company {
         }
     }
 
-    public void payTaxes(TaxSystem taxSystem) {
+
+    public void payTaxes(TaxSystem tax) {
         // TODO change this variables
-
-
-
 
         System.out.printf("Компания %s уплатила налог в размере: %d руб.", title, 10);
         debit = 0;
         credit = 0;
+
     }
 
     public void setTaxSystem(int taxSystem) {
