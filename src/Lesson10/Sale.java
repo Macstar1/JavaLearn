@@ -7,9 +7,15 @@ public class Sale extends Deal {
     public Sale(String comment, int creditChange, int debitChange, String name, int price) {
         super(comment, creditChange, debitChange);
         this.name = name;
-        this.price = price;
+        this.creditChange = 0;
+        this.debitChange = price;
     }
 
-    String comment = "Продажа " + name + " на " + price + " руб.";
+
+    String comment = "Продажа " + name + " на " + price + " руб." + creditChange + "  " + debitChange;
+
+    public void printComment() {
+        System.out.println(comment);
+    }
 
 }

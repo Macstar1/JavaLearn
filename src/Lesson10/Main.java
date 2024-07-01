@@ -19,11 +19,18 @@ public class Main {
         myCompany.setTaxSystem(1);
         myCompany.payTaxes(myCompany.debit, myCompany.credit);
 
-
         myCompany.setTaxSystem(2);
         myCompany.payTaxes(myCompany.debit, myCompany.credit);
 
 
+        Sale deal = new Sale("Продаём сепульки", 0, 2000, "Сепульки", 2000);
+        deal.printComment();
+//
+//        Deal[] deals = {
+//                new Sale("Продаём сепульки", 0, 2000, "Сепульки", 2000),
+//                new Sale("Продаём сепульки", 0, 2000, "Сепульки", 2000),
+//                new Expenditure("Покупаем сепульки", 2000, 0, "Сепульки", 2000)
+//        };
 
     }
 }

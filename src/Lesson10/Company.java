@@ -15,6 +15,12 @@ public class Company {
         this.title = title;
     }
 
+    private int applyDeals(Deal[] deals){
+        int dealQuantity = deals.length;
+
+        return 0;
+    }
+
     public void shiftMoney(int amount) {
         if (amount > 0) {
             debit += amount;
@@ -49,4 +55,5 @@ public class Company {
     public int getTaxSystem() {
         return taxSystem;
     }
+
 }
