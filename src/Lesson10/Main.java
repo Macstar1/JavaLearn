@@ -16,7 +16,7 @@ public class Main {
         myCompany.setTaxSystem(2);
         TaxSystem taxDebit = new TaxDebit();
 
-        myCompany.payTaxes(new TaxDebitMinusCredit());
+        myCompany.payTaxes(taxDebit, myCompany.debit, myCompany.credit);
 
 
     }

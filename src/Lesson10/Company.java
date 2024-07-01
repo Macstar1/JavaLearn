@@ -25,10 +25,12 @@ public class Company {
     }
 
 
-    public void payTaxes(TaxSystem tax) {
+    public void payTaxes(TaxSystem tax, int debit, int credit) {
         // TODO change this variables
 
-        System.out.printf("Компания %s уплатила налог в размере: %d руб.", title, 10);
+        int out = tax.calcTaxFor(debit, credit);
+
+        System.out.printf("Компания %s уплатила налог в размере: %d руб.", title, out);
         debit = 0;
         credit = 0;
 
@@ -38,5 +40,8 @@ public class Company {
         if (taxSystem == 1 || taxSystem == 2) {
             this.taxSystem = taxSystem;
         }
+    }
+    public int getTaxSystem(){
+        return taxSystem;
     }
 }
