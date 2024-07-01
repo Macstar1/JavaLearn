@@ -10,13 +10,19 @@ public class Main {
     public static void main(String[] args) {
         Company myCompany = new Company(1, "WorldTravelWithLowCost");
         myCompany.shiftMoney(1200);
+        myCompany.shiftMoney(1200);
+        myCompany.shiftMoney(-300);
         myCompany.shiftMoney(-300);
         System.out.println(myCompany.debit);
         System.out.println(myCompany.credit);
-        myCompany.setTaxSystem(2);
-        TaxSystem taxDebit = new TaxDebit();
 
-        myCompany.payTaxes(taxDebit, myCompany.debit, myCompany.credit);
+        myCompany.setTaxSystem(1);
+        myCompany.payTaxes(myCompany.debit, myCompany.credit);
+
+
+        myCompany.setTaxSystem(2);
+        myCompany.payTaxes(myCompany.debit, myCompany.credit);
+
 
 
     }

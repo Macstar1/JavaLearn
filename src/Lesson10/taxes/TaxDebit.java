@@ -12,4 +12,6 @@ public class TaxDebit extends TaxSystem {
     public int calcTaxFor(int debit) {
         return Math.max(debit * 6 / 100, 0);
     }
+
+
 }

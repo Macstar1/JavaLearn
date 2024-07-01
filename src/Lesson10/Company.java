@@ -15,7 +15,6 @@ public class Company {
         this.title = title;
     }
 
-
     public void shiftMoney(int amount) {
         if (amount > 0) {
             debit += amount;
@@ -24,13 +23,18 @@ public class Company {
         }
     }
 
+    public void payTaxes(int debit, int credit) {
 
-    public void payTaxes(TaxSystem tax, int debit, int credit) {
-        // TODO change this variables
+        int output = 0;
+        if (getTaxSystem() == 1) {
+            TaxSystem tax = new TaxDebit();
+            output = tax.calcTaxFor(debit);
+        } else if (getTaxSystem() == 2) {
+            TaxSystem tax = new TaxDebitMinusCredit();
+            output = tax.calcTaxFor(debit, credit);
+        }
 
-        int out = tax.calcTaxFor(debit, credit);
-
-        System.out.printf("Компания %s уплатила налог в размере: %d руб.", title, out);
+        System.out.printf("Компания %s уплатила налог в размере: %d руб. \n", title, output);
         debit = 0;
         credit = 0;
 
@@ -41,7 +45,8 @@ public class Company {
             this.taxSystem = taxSystem;
         }
     }
-    public int getTaxSystem(){
+
+    public int getTaxSystem() {
         return taxSystem;
     }
 }
