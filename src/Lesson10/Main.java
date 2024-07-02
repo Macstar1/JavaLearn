@@ -3,43 +3,51 @@ package Lesson10;
 public class Main {
     public static void main(String[] args) {
         Company myCompany = new Company(1, "WorldTravelWithLowCost");
-
-        System.out.println("Проверка метода payTaxes:");
+        System.out.println("Проверка метода payTaxes Debit:");
         myCompany.shiftMoney(1200);
         myCompany.shiftMoney(200);
-        myCompany.shiftMoney(-300);
+        myCompany.shiftMoney(-1000);
         myCompany.shiftMoney(-100);
         System.out.println(myCompany.debit);
         System.out.println(myCompany.credit);
 
         myCompany.setTaxSystem(1);
         myCompany.payTaxes(myCompany.debit, myCompany.credit);
+        System.out.println();
+
+        myCompany = new Company(1, "WorldTravelWithLowCost");
+        System.out.println("Проверка метода payTaxes Debit-Credit:");
+        myCompany.shiftMoney(1200);
+        myCompany.shiftMoney(200);
+        myCompany.shiftMoney(-1000);
+        myCompany.shiftMoney(-100);
+        System.out.println(myCompany.debit);
+        System.out.println(myCompany.credit);
 
         myCompany.setTaxSystem(2);
         myCompany.payTaxes(myCompany.debit, myCompany.credit);
-
-        System.out.println("Проверка метода payTaxes при :");
         System.out.println();
-        myCompany.setTaxSystem(1);
-        myCompany.payTaxes(myCompany.debit, myCompany.credit);
-        myCompany.shiftMoney(1200);
+
+        System.out.println("Проверка метода payTaxes Credit>Debit:");
+        myCompany = new Company(1, "WorldTravelWithLowCost");
+        System.out.println();
+        myCompany.shiftMoney(1100);
         myCompany.shiftMoney(200);
         myCompany.shiftMoney(-300);
         myCompany.shiftMoney(-1300);
         System.out.println(myCompany.debit);
         System.out.println(myCompany.credit);
 
-        myCompany.setTaxSystem(1);
-        myCompany.payTaxes(myCompany.debit, myCompany.credit);
-
         myCompany.setTaxSystem(2);
         myCompany.payTaxes(myCompany.debit, myCompany.credit);
+
+
 
         Deal[] deals = {
                 new Sale("Сепульки", 2000),
                 new Expenditure("Муркви", 1000),
                 new Sale("Сепульки", 1000),
-                new Expenditure("Муркви", 500),
+                new Expenditure("Муркви", 1500),
         };
 
         System.out.println();

@@ -23,7 +23,6 @@ public class Company {
             debit += deal.debitChange;
         }
         payTaxes(debit,credit);
-
         return debit - credit;
     }
 
@@ -36,7 +35,6 @@ public class Company {
     }
 
     public void payTaxes(int debit, int credit) {
-
         int output = 0;
         if (getTaxSystem() == 1) {
             TaxSystem tax = new TaxDebit();
@@ -45,9 +43,7 @@ public class Company {
             TaxSystem tax = new TaxDebitMinusCredit();
             output = tax.calcTaxFor(debit, credit);
         }
-
         System.out.printf("Компания %s уплатила налог в размере: %d руб. \n", title, output);
-
     }
 
     public void setTaxSystem(int taxSystem) {
