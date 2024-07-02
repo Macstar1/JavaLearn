@@ -8,13 +8,5 @@ public class Sale extends Deal {
         super("Продажа " + name + " на " + price + " руб.", 0, price);
         this.name = name;
         this.price = price;
-
     }
-
-    @Override
-    public void printComment() {
-        String commentSale = comment;
-        System.out.println(commentSale);
-    }
-
 }

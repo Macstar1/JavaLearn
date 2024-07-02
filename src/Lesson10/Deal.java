@@ -10,9 +10,4 @@ public class Deal {
         this.creditChange = creditChange;
         this.debitChange = debitChange;
     }
-    public void printComment(){
-
-    }
-
-
 }

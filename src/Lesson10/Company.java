@@ -5,7 +5,7 @@ import Lesson10.taxes.TaxDebitMinusCredit;
 import Lesson10.taxes.TaxSystem;
 
 public class Company {
-    private int taxSystem = 1;
+    private int taxSystem;
     String title;
     int debit = 0;
     int credit = 0;
@@ -16,12 +16,11 @@ public class Company {
     }
 
     public int applyDeals(Deal[] deals){
-        int dealQuantity = deals.length;
         debit = 0;
         credit = 0;
-        for (int i = 0; i < dealQuantity; i++) {
-            credit += deals[i].creditChange;
-            debit += deals[i].debitChange;
+        for (Deal deal : deals) {
+            credit += deal.creditChange;
+            debit += deal.debitChange;
         }
         payTaxes(debit,credit);
 
@@ -48,8 +47,6 @@ public class Company {
         }
 
         System.out.printf("Компания %s уплатила налог в размере: %d руб. \n", title, output);
-        debit = 0;
-        credit = 0;
 
     }
 
