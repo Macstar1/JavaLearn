@@ -41,21 +41,35 @@ public class Main {
         myCompany.setTaxSystem(2);
         myCompany.payTaxes(myCompany.debit, myCompany.credit);
 
+        System.out.println();
 
-
-        Deal[] deals = {
+        Deal[] deals1 = {
                 new Sale("Сепульки", 2000),
                 new Expenditure("Муркви", 1000),
                 new Sale("Сепульки", 1000),
                 new Expenditure("Муркви", 1500),
         };
+        for (Deal deal : deals1) {
+            System.out.println(deal.comment);
+        }
 
         System.out.println();
         myCompany.setTaxSystem(1);
-        System.out.println(myCompany.applyDeals(deals));
+        System.out.println(myCompany.applyDeals(deals1));
+
+        System.out.println();
+        Deal[] deals2 = {
+                new Sale("Сепульки", 2000),
+                new Expenditure("Муркви", 3000),
+                new Sale("Сепульки", 1000),
+                new Expenditure("Муркви", 1500),
+        };
+        for (Deal deal : deals2) {
+            System.out.println(deal.comment);
+        }
 
         myCompany.setTaxSystem(2);
-        System.out.println(myCompany.applyDeals(deals));
+        System.out.println(myCompany.applyDeals(deals2));
 
     }
 }
