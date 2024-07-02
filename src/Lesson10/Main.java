@@ -1,11 +1,5 @@
 package Lesson10;
 
-import Lesson10.taxes.TaxDebit;
-import Lesson10.taxes.TaxDebitMinusCredit;
-import Lesson10.taxes.TaxSystem;
-
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Company myCompany = new Company(1, "WorldTravelWithLowCost");
@@ -23,14 +17,25 @@ public class Main {
         myCompany.payTaxes(myCompany.debit, myCompany.credit);
 
 
-        Sale deal = new Sale("Продаём сепульки", 0, 0, "Сепульки", 2000);
-        deal.printComment();
-//
-//        Deal[] deals = {
-//                new Sale("Продаём сепульки", 0, 2000, "Сепульки", 2000),
-//                new Sale("Продаём сепульки", 0, 2000, "Сепульки", 2000),
-//                new Expenditure("Покупаем сепульки", 2000, 0, "Сепульки", 2000)
-//        };
+//        Deal deal = new Sale("Продаём сепульки", "Сепульки", 2000);
+//        deal.printComment();
+
+        Deal[] deals = {
+                new Sale("Сепульки", 2000),
+                new Expenditure("Муркви", 1000),
+                new Sale("Сепульки", 1000),
+                new Expenditure("Муркви", 500),
+
+        };
+
+        //deals[0].printComment();
+        //deals[1].printComment();
+        System.out.println();
+        myCompany.setTaxSystem(1);
+        System.out.println(myCompany.applyDeals(deals));
+
+        myCompany.setTaxSystem(2);
+        System.out.println(myCompany.applyDeals(deals));
 
     }
 }

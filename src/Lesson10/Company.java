@@ -15,10 +15,17 @@ public class Company {
         this.title = title;
     }
 
-    private int applyDeals(Deal[] deals){
+    public int applyDeals(Deal[] deals){
         int dealQuantity = deals.length;
+        debit = 0;
+        credit = 0;
+        for (int i = 0; i < dealQuantity; i++) {
+            credit += deals[i].creditChange;
+            debit += deals[i].debitChange;
+        }
+        payTaxes(debit,credit);
 
-        return 0;
+        return debit - credit;
     }
 
     public void shiftMoney(int amount) {
