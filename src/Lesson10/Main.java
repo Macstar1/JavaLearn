@@ -23,7 +23,7 @@ public class Main {
         myCompany.payTaxes(myCompany.debit, myCompany.credit);
 
 
-        Sale deal = new Sale("Продаём сепульки", 0, 2000, "Сепульки", 2000);
+        Sale deal = new Sale("Продаём сепульки", 0, 0, "Сепульки", 2000);
         deal.printComment();
 //
 //        Deal[] deals = {

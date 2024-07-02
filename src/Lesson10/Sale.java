@@ -5,10 +5,9 @@ public class Sale extends Deal {
     int price;
 
     public Sale(String comment, int creditChange, int debitChange, String name, int price) {
-        super(comment, creditChange, debitChange);
+        super(comment, price, 15);
         this.name = name;
-        this.creditChange = 0;
-        this.debitChange = price;
+
     }
 
 
