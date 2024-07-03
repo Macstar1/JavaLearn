@@ -1,7 +1,5 @@
 package Lesson10;
 
-import Lesson10.taxes.TaxDebit;
-import Lesson10.taxes.TaxDebitMinusCredit;
 import Lesson10.taxes.TaxSystem;
 
 public class Company {
@@ -15,7 +13,7 @@ public class Company {
         this.title = title;
     }
 
-    public int applyDeals(Deal[] deals){
+    public int applyDeals(Deal[] deals) {
         debit = 0;
         credit = 0;
         for (Deal deal : deals) {
@@ -35,21 +33,12 @@ public class Company {
     }
 
     public void payTaxes() {
-        int output = 0;
-        if (getTaxSystem() == 1) {
-            TaxSystem tax = new TaxDebit();
-            output = tax.calcTaxFor(debit);
-        } else if (getTaxSystem() == 2) {
-            TaxSystem tax = new TaxDebitMinusCredit();
-            output = tax.calcTaxFor(debit, credit);
-        }
+        int output = taxSystem.calcTaxFor(debit, credit);
         System.out.printf("Компания %s уплатила налог в размере: %d руб. \n", title, output);
     }
 
     public void setTaxSystem(TaxSystem taxSystem) {
-        if (taxSystem == 1 || taxSystem == 2) {
-            this.taxSystem = taxSystem;
-        }
+        this.taxSystem = taxSystem;
     }
 
     public TaxSystem getTaxSystem() {
@@ -63,6 +52,4 @@ public class Company {
     public int getCredit() {
         return credit;
     }
-
-
 }
