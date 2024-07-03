@@ -5,12 +5,12 @@ import Lesson10.taxes.TaxDebitMinusCredit;
 import Lesson10.taxes.TaxSystem;
 
 public class Company {
-    private int taxSystem;
-    String title;
-    int debit = 0;
-    int credit = 0;
+    private TaxSystem taxSystem;
+    private String title;
+    private int debit = 0;
+    private int credit = 0;
 
-    public Company(int taxSystem, String title) {
+    public Company(TaxSystem taxSystem, String title) {
         this.taxSystem = taxSystem;
         this.title = title;
     }
@@ -22,7 +22,7 @@ public class Company {
             credit += deal.creditChange;
             debit += deal.debitChange;
         }
-        payTaxes(debit,credit);
+        payTaxes();
         return debit - credit;
     }
 
@@ -34,7 +34,7 @@ public class Company {
         }
     }
 
-    public void payTaxes(int debit, int credit) {
+    public void payTaxes() {
         int output = 0;
         if (getTaxSystem() == 1) {
             TaxSystem tax = new TaxDebit();
@@ -46,14 +46,23 @@ public class Company {
         System.out.printf("Компания %s уплатила налог в размере: %d руб. \n", title, output);
     }
 
-    public void setTaxSystem(int taxSystem) {
+    public void setTaxSystem(TaxSystem taxSystem) {
         if (taxSystem == 1 || taxSystem == 2) {
             this.taxSystem = taxSystem;
         }
     }
 
-    public int getTaxSystem() {
+    public TaxSystem getTaxSystem() {
         return taxSystem;
     }
+
+    public int getDebit() {
+        return debit;
+    }
+
+    public int getCredit() {
+        return credit;
+    }
+
 
 }

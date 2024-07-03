@@ -8,11 +8,11 @@ public class Main {
         myCompany.shiftMoney(200);
         myCompany.shiftMoney(-1000);
         myCompany.shiftMoney(-100);
-        System.out.println(myCompany.debit);
-        System.out.println(myCompany.credit);
+        System.out.println(myCompany.getDebit());
+        System.out.println(myCompany.getCredit());
 
         myCompany.setTaxSystem(1);
-        myCompany.payTaxes(myCompany.debit, myCompany.credit);
+        myCompany.payTaxes();
         System.out.println();
 
         myCompany = new Company(1, "WorldTravelWithLowCost");
@@ -21,11 +21,11 @@ public class Main {
         myCompany.shiftMoney(200);
         myCompany.shiftMoney(-1000);
         myCompany.shiftMoney(-100);
-        System.out.println(myCompany.debit);
-        System.out.println(myCompany.credit);
+        System.out.println(myCompany.getDebit());
+        System.out.println(myCompany.getCredit());
 
         myCompany.setTaxSystem(2);
-        myCompany.payTaxes(myCompany.debit, myCompany.credit);
+        myCompany.payTaxes();
         System.out.println();
 
         System.out.println("Проверка метода payTaxes Credit>Debit:");
@@ -35,11 +35,11 @@ public class Main {
         myCompany.shiftMoney(200);
         myCompany.shiftMoney(-300);
         myCompany.shiftMoney(-1300);
-        System.out.println(myCompany.debit);
-        System.out.println(myCompany.credit);
+        System.out.println(myCompany.getDebit());
+        System.out.println(myCompany.getCredit());
 
         myCompany.setTaxSystem(2);
-        myCompany.payTaxes(myCompany.debit, myCompany.credit);
+        myCompany.payTaxes();
 
         System.out.println();
         Deal[] deals1 = {
