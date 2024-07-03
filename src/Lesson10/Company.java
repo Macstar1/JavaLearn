@@ -4,7 +4,7 @@ import Lesson10.taxes.TaxSystem;
 
 public class Company {
     private TaxSystem taxSystem;
-    private String title;
+    private final String title;
     private int debit = 0;
     private int credit = 0;
 
@@ -17,8 +17,8 @@ public class Company {
         debit = 0;
         credit = 0;
         for (Deal deal : deals) {
-            credit += deal.creditChange;
-            debit += deal.debitChange;
+            credit += deal.getCreditChange();
+            debit += deal.getDebitChange();
         }
         payTaxes();
         return debit - credit;
@@ -39,10 +39,6 @@ public class Company {
 
     public void setTaxSystem(TaxSystem taxSystem) {
         this.taxSystem = taxSystem;
-    }
-
-    public TaxSystem getTaxSystem() {
-        return taxSystem;
     }
 
     public int getDebit() {

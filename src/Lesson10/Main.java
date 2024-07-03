@@ -51,7 +51,7 @@ public class Main {
                 new Expenditure("Муркви", 1500),
         };
         for (Deal deal : deals1) {
-            System.out.println(deal.comment);
+            System.out.println(deal.getComment());
         }
         myCompany.setTaxSystem(new TaxDebit());
         System.out.println(myCompany.applyDeals(deals1));
@@ -64,7 +64,7 @@ public class Main {
                 new Expenditure("Муркви", 2500),
         };
         for (Deal deal : deals2) {
-            System.out.println(deal.comment);
+            System.out.println(deal.getComment());
         }
         myCompany.setTaxSystem(new TaxDebitMinusCredit());
         System.out.println(myCompany.applyDeals(deals2));
