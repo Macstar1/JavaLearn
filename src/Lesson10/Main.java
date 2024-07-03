@@ -33,7 +33,6 @@ public class Main {
 
         System.out.println("Проверка метода payTaxes Credit>Debit:");
         myCompany = new Company(new TaxDebit(), "WorldTravelWithLowCost");
-        System.out.println();
         myCompany.shiftMoney(1100);
         myCompany.shiftMoney(200);
         myCompany.shiftMoney(-300);
@@ -62,7 +61,7 @@ public class Main {
                 new Sale("Сепульки", 2000),
                 new Expenditure("Муркви", 1000),
                 new Sale("Сепульки", 1000),
-                new Expenditure("Муркви", 1500),
+                new Expenditure("Муркви", 2500),
         };
         for (Deal deal : deals2) {
             System.out.println(deal.comment);
