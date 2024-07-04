@@ -1,35 +1,41 @@
 package Lesson11.task1;
 
 public class SimpleAccount extends Account {
-    private long account;
+    private long accountSize;
 
-    public SimpleAccount(long account) {
-        this.account = account;
+    public SimpleAccount(long accountSize) {
+        this.accountSize = accountSize;
     }
+
 
     @Override
     boolean add(long amount) {
-        account += amount;
+        accountSize += amount;
         return true;
     }
 
     @Override
     boolean pay(long amount) {
-        if (amount < account) {
-            account -= amount;
+        if (amount < accountSize) {
+            accountSize -= amount;
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
     @Override
     boolean transfer(Account account, long amount) {
-        return false;
+        if (account.add(amount) && pay(amount)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
-    long getBalance() {
-        return account;
-    }
+    long getBalance(){
+        return accountSize;
+    };
+
 }
