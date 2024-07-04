@@ -1,7 +1,6 @@
 package Lesson11.task1;
 
 abstract class Account {
-    private long accountSize;
 
     abstract boolean add(long amount);
 
