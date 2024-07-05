@@ -15,7 +15,7 @@ public class SimpleAccount extends Account {
 
     @Override
     boolean pay(long amount) {
-        if (amount < accountSize) {
+        if (amount <= accountSize) {
             accountSize -= amount;
             return true;
         } else {
@@ -35,7 +35,5 @@ public class SimpleAccount extends Account {
     }
 
     @Override
-    long getBalance() {
-        return accountSize;
-    }
+    long getBalance() { return accountSize; }
 }
