@@ -7,7 +7,6 @@ public class SimpleAccount extends Account {
         this.accountSize = accountSize;
     }
 
-
     @Override
     boolean add(long amount) {
         accountSize += amount;
@@ -36,7 +35,7 @@ public class SimpleAccount extends Account {
     }
 
     @Override
-    long getBalance(){
+    long getBalance() {
         return accountSize;
     }
 }

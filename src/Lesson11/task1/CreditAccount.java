@@ -6,7 +6,7 @@ public class CreditAccount extends Account {
 
     public CreditAccount(long accountSize) {
         this.accountSize = accountSize;
-        this.accountLimit = -50_000L;
+        this.accountLimit = -25_000L;
     }
 
     @Override
@@ -31,7 +31,10 @@ public class CreditAccount extends Account {
 
     @Override
     boolean transfer(Account account, long amount) {
-        if (accountSize + amount < 0 && accountSize + amount > accountLimit) {
+        if (
+                accountSize + amount < 0
+                && accountSize + amount > accountLimit
+        ) {
             account.add(amount);
             pay(amount);
             return true;
