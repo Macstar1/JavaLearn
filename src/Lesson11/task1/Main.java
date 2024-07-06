@@ -8,22 +8,36 @@ public class Main {
         Account PiterCredit = new CreditAccount(-15_000L);
         Account MariCredit = new CreditAccount(-15_000L);
 
-        System.out.println(PiterCredit.transfer(MariCredit,11_000L));
-        System.out.println(PiterCredit.getBalance());
+        System.out.println(PiterSimple.getBalance());
         System.out.println(MariCredit.getBalance());
-      /*  System.out.println(PiterSimple.transfer(MariSimple, 5_000L));
+        System.out.println(PiterSimple.transfer(MariCredit, 5_000L));
+        System.out.println(PiterSimple.getBalance());
+        System.out.println(MariCredit.getBalance());
+        System.out.println();
 
         System.out.println(PiterSimple.getBalance());
-        System.out.println(MariSimple.getBalance());
+        System.out.println(MariCredit.getBalance());
+        System.out.println(MariCredit.transfer(PiterSimple, 15_000L));
+        System.out.println(PiterSimple.getBalance());
+        System.out.println(MariCredit.getBalance());
+        System.out.println();
 
-        System.out.println(MariCredit.transfer(PiterSimple, 1_000L));
+        System.out.println(PiterCredit.getBalance());
+        System.out.println(MariCredit.getBalance());
+        System.out.println(MariCredit.transfer(PiterCredit,10_000L));
+        System.out.println(PiterCredit.getBalance());
+        System.out.println(MariCredit.getBalance());
+        System.out.println();
+
+        System.out.println(MariCredit.getBalance());
         System.out.println(MariCredit.add(200L));
         System.out.println(MariCredit.pay(500L));
-
-        System.out.println(PiterCredit.getBalance());
         System.out.println(MariCredit.getBalance());
-        System.out.println(PiterSimple.getBalance());
+        System.out.println();
 
-       */
+        System.out.println(MariSimple.getBalance());
+        System.out.println(MariSimple.add(2000L));
+        System.out.println(MariSimple.pay(5000L));
+        System.out.println(MariSimple.getBalance());
     }
 }

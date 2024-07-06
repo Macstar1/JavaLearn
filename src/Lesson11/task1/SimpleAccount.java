@@ -25,15 +25,20 @@ public class SimpleAccount extends Account {
 
     @Override
     boolean transfer(Account account, long amount) {
-        if (amount < accountSize) {
-            pay(amount);
-            account.add(amount);
-            return true;
+        if (amount <= accountSize) {
+            if (account.add(amount)) {
+                pay(amount);
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
     }
 
     @Override
-    long getBalance() { return accountSize; }
+    long getBalance() {
+        return accountSize;
+    }
 }
