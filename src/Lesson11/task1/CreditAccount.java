@@ -31,8 +31,13 @@ public class CreditAccount extends Account {
 
     @Override
     boolean transfer(Account account, long amount) {
-        if (pay(amount) && account.pay(amount)) {
-            return true;
+        if ((accountSize - amount >= accountLimit)) {
+            if (account.add(amount)) {
+                pay(amount);
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
