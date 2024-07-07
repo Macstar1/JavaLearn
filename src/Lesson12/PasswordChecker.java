@@ -6,13 +6,22 @@ public class PasswordChecker {
 
     public void setMinLength(int minLength) {
         this.minLength = minLength;
+        if (minLength < 0) {
+            throw new IllegalArgumentException("Минимальная длина пароля не может быть меньше нуля.");
+        }
     }
 
     public void setMaxRepeats(int maxRepeats) {
         this.maxRepeats = maxRepeats;
+        if (maxRepeats < 0) {
+            throw new IllegalArgumentException("Минимальное число повторений не может быть меньше нуля.");
+        }
     }
 
     public boolean verify(String password) {
+        if (maxRepeats == 0 || minLength == 0){
+            throw new IllegalArgumentException("Не задан один из аргументов.");
+        }
         int repeat = 0;
         for (int i = 1; i < password.length(); i++) {
             if (password.charAt(i) == password.charAt(i - 1)) {
@@ -21,14 +30,20 @@ public class PasswordChecker {
                 if (repeat > 0) {
                     repeat = Math.max(repeat, 2);
                 }
-                repeat = 0;
             }
         }
-        if (minLength > password.length() || repeat > maxRepeats) {
-            System.out.println("Не подходит!" + repeat);
+
+        if (password.length() < minLength) {
+            System.out.println("Не подходит!");
             return false;
         }
-        System.out.println("Подходит!" + repeat);
+
+        if (repeat > maxRepeats) {
+            System.out.println("Не подходит!");
+            return false;
+        }
+
+        System.out.println("Подходит!");
         return true;
     }
 }

@@ -19,6 +19,7 @@ public class Main {
             System.out.println("Введите пароль или end: ");
             verifyInput = scanner.nextLine();
             if ("end".equals(verifyInput)) {
+                System.out.println("Программа завершена");
                 break;
             }
 
