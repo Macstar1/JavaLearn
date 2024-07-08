@@ -19,8 +19,8 @@ public class PasswordChecker {
     }
 
     public boolean verify(String password) {
-        if (maxRepeats == 0 || minLength == 0){
-            throw new IllegalArgumentException("Не задан один из аргументов.");
+        if (maxRepeats == 0 || minLength == 0) {
+            throw new IllegalStateException("Не задан один из аргументов.");
         }
         int repeat = 0;
         for (int i = 1; i < password.length(); i++) {
@@ -33,15 +33,11 @@ public class PasswordChecker {
             }
         }
 
-        if (password.length() < minLength) {
+        if ((password.length() < minLength) || (repeat > maxRepeats)) {
             System.out.println("Не подходит!");
             return false;
         }
 
-        if (repeat > maxRepeats) {
-            System.out.println("Не подходит!");
-            return false;
-        }
 
         System.out.println("Подходит!");
         return true;
