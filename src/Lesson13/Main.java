@@ -58,19 +58,18 @@ class RandomBox<T> {
 
 
 class DoubleBox<T> {
-    private RandomBox<T> first = new RandomBox<>(0,null);
-    private RandomBox<T> second = new RandomBox<>(0,null);;
+    private RandomBox<T> first;
+    private RandomBox<T> second;
     private int size = 0;
 
 
     public boolean put(int key, T value) {
         // ваш код
-        if (first.tryUnlock(key) == null) {
+        if (first == null) {
             first = new RandomBox<T>(key, value);
             size++;
             return true;
-        }
-        if (second.tryUnlock(key) == null) {
+        } else if (second == null) {
             second = new RandomBox<T>(key, value);
             size++;
             return true;
@@ -79,13 +78,13 @@ class DoubleBox<T> {
 
     public T get(int key) {
         // ваш код
-
-        if (key == first.getKey()) {
-            return first.getValue();
-        } else if (key == second.getKey()) {
-            return second.getValue();
+        if (first != null || second != null) {
+            if (first != null && key == first.getKey()) {
+                return first.getValue();
+            } else if (second != null && key == second.getKey()) {
+                return second.getValue();
+            } else return null;
         } else return null;
-
     }
 
     public int size() {
