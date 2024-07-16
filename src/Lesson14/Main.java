@@ -9,15 +9,16 @@ public class Main {
         ArrayList<String> tasks = new ArrayList<>();
         while (true) {
 
-            System.out.println("\n" +
-                    "Выберите операцию:\n" +
-                    "\n" +
-                    "0. Выход из программы\n" +
-                    "1. Добавить дело\n" +
-                    "2. Показать дела\n" +
-                    "3. Удалить дело по номеру\n" +
-                    "4. Удалить дело по названию\n" +
-                    "Ваш выбор: ");
+            System.out.println("""
+
+                    Выберите операцию:
+
+                    0. Выход из программы
+                    1. Добавить дело
+                    2. Показать дела
+                    3. Удалить дело по номеру
+                    4. Удалить дело по названию
+                    Ваш выбор:\s""");
             int input = Integer.parseInt(scaner.nextLine());
             if (input == 0) {
                 break;
@@ -30,6 +31,9 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Ваш список дел: " + tasks);
+                    for (int i = 0; i < tasks.size(); i++) {
+                        System.out.println(i + 1 + ". " + tasks.get(i));
+                    }
                     break;
                 case 3:
                     System.out.println("Введите номер для удаления: ");
