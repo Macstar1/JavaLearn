@@ -1,14 +1,15 @@
 package Lesson14;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scaner = new Scanner(System.in);
-        ArrayList<String> tasks = new ArrayList<>();
-        while (true) {
+        List<String> tasks = new ArrayList<>();
 
+        while (true) {
             System.out.println("""
 
                     Выберите операцию:
@@ -18,9 +19,12 @@ public class Main {
                     2. Показать дела
                     3. Удалить дело по номеру
                     4. Удалить дело по названию
+                    5. Удалить дело по контексту
                     Ваш выбор:\s""");
+
             int input = Integer.parseInt(scaner.nextLine());
             if (input == 0) {
+                System.out.println("Программа завершена!");
                 break;
             }
             switch (input) {
@@ -45,8 +49,21 @@ public class Main {
                     tasks.remove(scaner.nextLine());
                     System.out.println("Удалено!");
                     break;
+                case 5:
+                    System.out.println("Введите контекст для удаления: ");
+                    String keyword = scaner.nextLine();
+                    for (int i = 0; i < tasks.size(); i++) {
+                        if (tasks.get(i).contains(keyword)) {
+                            tasks.remove(i);
+                            i--;
+                        }
+                    }
+                    System.out.println("Удалено!");
+                    break;
+                default:
+                    System.out.println("Ввели неправильное значение!");
+                    break;
             }
-            System.out.println();
         }
     }
 }
