@@ -41,24 +41,45 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Введите номер для удаления: ");
-                    tasks.remove(Integer.parseInt(scaner.nextLine()));
-                    System.out.println("Удалено!");
-                    break;
+                    int number = Integer.parseInt(scaner.nextLine());
+                    if (number > tasks.size() || number < 0) {
+                        System.out.println("Такой задачи не существует.");
+                        break;
+                    } else {
+                        tasks.remove(number);
+                        System.out.println("Удалено!");
+                        break;
+                    }
+
                 case 4:
                     System.out.println("Ведите задачу для удаления: ");
-                    tasks.remove(scaner.nextLine());
-                    System.out.println("Удалено!");
-                    break;
+                    String taskName = scaner.nextLine();
+                    if (tasks.contains(taskName)) {
+                        tasks.remove(taskName);
+                        System.out.println("Удалено!");
+                        break;
+                    }else {
+                        System.out.println("Такой задачи не существует.");
+                        break;
+                    }
+
                 case 5:
                     System.out.println("Введите контекст для удаления: ");
                     String keyword = scaner.nextLine();
+                    boolean isDelete = false;
                     for (int i = 0; i < tasks.size(); i++) {
                         if (tasks.get(i).contains(keyword)) {
                             tasks.remove(i);
                             i--;
+                            isDelete = true;
                         }
                     }
-                    System.out.println("Удалено!");
+                    if (isDelete) {
+                        System.out.println("Удалено!");
+
+                    }else {
+                        System.out.println("Задачи не найдены.");
+                    }
                     break;
                 default:
                     System.out.println("Ввели неправильное значение!");
