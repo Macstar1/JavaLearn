@@ -16,7 +16,7 @@ public class Main {
         costPerAddress.put(julia, 500);
         costPerAddress.put(olya, 1500);
 
-        int countryNumbers = 0;
+        int countryNumbers;
         int deliveryCost;
         int allDeliverySost = 0;
 
