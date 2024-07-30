@@ -4,13 +4,13 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Map<Address, Integer> costPerAddress = new HashMap<>();
+        Map<Adress.Address, Integer> costPerAddress = new HashMap<>();
         Set<String> cities = new HashSet<>();
         Scanner scanner = new Scanner(System.in);
 
-        Address home = new Address("Russia", "Moscow");
-        Address julia = new Address("Russia", "Piter");
-        Address olya = new Address("Ukraine", "Kiev");
+        Adress.Address home = new Adress.Address("Russia", "Moscow");
+        Adress.Address julia = new Adress.Address("Russia", "Piter");
+        Adress.Address olya = new Adress.Address("Ukraine", "Kiev");
 
         costPerAddress.put(home, 100);
         costPerAddress.put(julia, 500);
@@ -34,7 +34,7 @@ public class Main {
 
             System.out.println("Введите вес (кг): ");
             Integer weight = Integer.parseInt(scanner.nextLine());
-            Address newAdress = new Address(verifyCountry, verifyCity);
+            Adress.Address newAdress = new Adress.Address(verifyCountry, verifyCity);
             if (costPerAddress.containsKey(newAdress)) {
                 cities.add(newAdress.country);
                 countryNumbers = cities.size();
@@ -52,23 +52,3 @@ public class Main {
     }
 }
 
-class Address {
-    protected String country;
-    protected String city;
-
-    public Address(String country, String city) {
-        this.country = country;
-        this.city = city;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(country, city);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        Address o = (Address) obj;
-        return country.equals(o.country) && city.equals(o.city);
-    }
-}
